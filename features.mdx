@@ -1,0 +1,123 @@
+---
+title: Features
+description: Explore the key features and capabilities of Atomika Documentation
+---
+
+## Core Features
+
+Atomika Documentation offers a comprehensive set of features designed to streamline your documentation workflow. From collaborative editing to advanced search capabilities, our platform provides everything you need to create and maintain high-quality documentation.
+
+<Columns cols={3}>
+  <Card title="Collaborative Editing" icon="users" href="#collaborative-editing">
+    Work together in real-time with your team on documentation projects.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="#version-control">
+    Track changes and maintain multiple versions of your documentation.
+  </Card>
+  <Card title="Advanced Search" icon="search" href="#advanced-search">
+    Find content quickly with powerful search and filtering options.
+  </Card>
+</Columns>
+
+## Collaborative Editing
+
+Our real-time collaborative editing feature allows multiple team members to work on the same documentation page simultaneously. Changes are synced instantly, and you can see who is editing what in real-time.
+
+<Tabs>
+  <Tab title="Real-time Sync" icon="refresh-cw">
+    See changes from your colleagues as they happen. No more conflicting edits or lost work.
+
+    <CodeGroup tabs="WebSocket,REST API">
+      ````javascript
+      // Real-time sync example
+const socket = new WebSocket('wss://api.atomika.com/realtime');
+
+socket.onmessage = (event) => {
+  const data = JSON.parse(event.data);
+  updateDocument(data.changes);
+};
+      ````
+      ````javascript
+const updateDoc = async (docId, changes) => {
+  const response = await fetch(`/api/docs/${docId}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(changes)
+  });
+  return response.json();
+};
+      ````
+    </CodeGroup>
+  </Tab>
+  <Tab title="Comments & Review" icon="message-square">
+    Add comments and review changes before publishing. Keep track of feedback and discussions.
+
+    <Steps>
+      <Step title="Add Comment" icon="message-circle">
+        Highlight text and click the comment button to add feedback.
+      </Step>
+      <Step title="Review Changes" icon="eye">
+        Use the diff view to see what has changed between versions.
+      </Step>
+      <Step title="Approve & Publish" icon="check-circle">
+        Review and approve changes before making them live.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+<Expandable title="How does conflict resolution work?" default-open="false">
+  When conflicts occur during simultaneous editing, Atomika automatically merges compatible changes. For conflicting changes, you'll be prompted to resolve them manually, ensuring data integrity.
+</Expandable>
+
+## Version Control
+
+Keep track of all changes to your documentation with our built-in version control system. Every edit is saved as a new version, allowing you to revert to previous states if needed.
+
+<Steps>
+  <Step title="Automatic Versioning" icon="clock">
+    Every save creates a new version automatically, with timestamps and author information.
+  </Step>
+  <Step title="Version Comparison" icon="git-compare">
+    Compare different versions to see exactly what changed between edits.
+  </Step>
+  <Step title="Rollback" icon="undo">
+    Easily revert to any previous version if needed.
+  </Step>
+  <Step title="Branching" icon="git-branch">
+    Create branches for major updates or experimental content.
+  </Step>
+</Steps>
+
+<Callout kind="info">
+  Version control is essential for maintaining documentation quality. It allows you to track changes, collaborate effectively, and maintain a history of your documentation evolution.
+</Callout>
+
+## Advanced Search
+
+Our powerful search engine helps you find content quickly across all your documentation projects. Use filters, facets, and advanced query syntax to locate exactly what you need.
+
+<ExpandableGroup>
+  <Expandable title="What search features are available?" default-open="false">
+    Full-text search, filter by project, author, date, tags, and content type. Use operators like AND, OR, NOT for complex queries.
+  </Expandable>
+  <Expandable title="Can I search across multiple projects?" default-open="false">
+    Yes, you can perform global searches across all your projects or limit searches to specific projects and folders.
+  </Expandable>
+  <Expandable title="How accurate are the search results?" default-open="false">
+    Our search engine uses advanced algorithms to provide relevant results, including fuzzy matching for typos and synonyms.
+  </Expandable>
+</ExpandableGroup>
+
+<CodeGroup tabs="Simple Search,Advanced Query">
+  ````bash
+  # Simple search
+  search "authentication setup"
+  ````
+  ````bash
+  # Advanced query
+  search "api AND (authentication OR login)" project:"my-project" date:"2024-01-01..2024-12-31"
+  ````
+</CodeGroup>
+
+Atomika Documentation's features are designed to scale with your team's needs. Whether you're a small startup or a large enterprise, our platform provides the tools necessary to create, manage, and distribute high-quality documentation efficiently.

@@ -1,0 +1,141 @@
+---
+title: API Overview
+description: Learn about Atomika's API capabilities and integration options
+---
+
+## API Architecture
+
+Atomika Documentation provides a comprehensive REST API that allows you to integrate documentation management into your existing workflows. Our API follows RESTful principles and supports JSON data formats.
+
+<Columns cols={3}>
+  <Card title="RESTful Design" icon="code" href="#restful-design">
+    Clean, predictable API endpoints following REST conventions.
+  </Card>
+  <Card title="JSON Responses" icon="database" href="#json-responses">
+    Consistent JSON structure for all API responses.
+  </Card>
+  <Card title="Authentication" icon="shield" href="#authentication">
+    Secure access with API keys and OAuth support.
+  </Card>
+</Columns>
+
+## RESTful Design
+
+Our API endpoints are designed following REST principles, making them intuitive and easy to use. Each resource has a consistent URL structure and supports standard HTTP methods.
+
+<Tabs>
+  <Tab title="Documents" icon="file-text">
+    Manage documentation pages and content.
+
+    <Steps>
+      <Step title="List Documents" icon="list">
+        Retrieve a list of all documents in a project.
+      </Step>
+      <Step title="Create Document" icon="plus">
+        Create a new documentation page.
+      </Step>
+      <Step title="Update Document" icon="edit">
+        Modify existing document content.
+      </Step>
+      <Step title="Delete Document" icon="trash-2">
+        Remove a document from the system.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Projects" icon="folder">
+    Organize and manage documentation projects.
+
+    <CodeGroup tabs="Create Project,Get Project">
+      ````javascript
+const createProject = async (name, description) => {
+  const response = await fetch('/api/projects', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${API_KEY}`
+    },
+    body: JSON.stringify({ name, description })
+  });
+  return response.json();
+};
+      ````
+      ````javascript
+const getProject = async (projectId) => {
+  const response = await fetch(`/api/projects/${projectId}`, {
+    headers: {
+      'Authorization': `Bearer ${API_KEY}`
+    }
+  });
+  return response.json();
+};
+      ````
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+<Expandable title="What HTTP status codes does the API use?" default-open="false">
+  We use standard HTTP status codes: 200 for success, 201 for created resources, 400 for bad requests, 401 for unauthorized access, 404 for not found resources, and 500 for server errors.
+</Expandable>
+
+## JSON Responses
+
+All API responses are returned in JSON format with a consistent structure. Successful responses include the requested data, while error responses provide detailed error information.
+
+<ExpandableGroup>
+  <Expandable title="Success Response Structure" default-open="false">
+    Successful responses include a `data` field with the requested resource, and optional `meta` information like pagination details.
+  </Expandable>
+  <Expandable title="Error Response Structure" default-open="false">
+    Error responses include an `error` object with `code`, `message`, and optional `details` for debugging.
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="tip">
+  Use the `Accept` header to specify JSON format explicitly: `Accept: application/json`.
+</Callout>
+
+## Authentication
+
+Secure your API calls with authentication. We support API key authentication and OAuth 2.0 for more advanced use cases.
+
+<Steps>
+  <Step title="Generate API Key" icon="key">
+    Create an API key from your account settings.
+  </Step>
+  <Step title="Include in Requests" icon="send">
+    Add the API key to the Authorization header.
+  </Step>
+  <Step title="Rotate Keys" icon="refresh-cw">
+    Regularly rotate your API keys for security.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="API Key,OAuth">
+  ````bash
+  # API Key authentication
+  curl -H "Authorization: Bearer YOUR_API_KEY" \
+       https://api.atomika.com/v1/docs
+  ````
+  ````javascript
+  // OAuth flow example
+const getAccessToken = async (code) => {
+  const response = await fetch('/oauth/token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      grant_type: 'authorization_code',
+      code,
+      client_id: CLIENT_ID,
+      client_secret: CLIENT_SECRET
+    })
+  });
+  return response.json();
+};
+  ````
+</CodeGroup>
+
+<Expandable title="How do I set up OAuth?" default-open="false">
+  Register your application in the developer console to get client credentials. Implement the OAuth flow in your application to obtain access tokens.
+</Expandable>
+
+Atomika's API enables seamless integration with your existing tools and workflows. Whether you're building custom dashboards, automating documentation updates, or connecting with CI/CD pipelines, our API provides the flexibility you need.

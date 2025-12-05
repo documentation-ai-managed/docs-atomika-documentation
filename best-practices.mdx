@@ -1,0 +1,154 @@
+---
+title: Best Practices
+description: Learn best practices for creating effective documentation with Atomika
+---
+
+## Writing Effective Documentation
+
+Creating clear, useful documentation requires planning and consistency. Follow these best practices to ensure your documentation serves your audience effectively.
+
+<Columns cols={3}>
+  <Card title="Know Your Audience" icon="users" href="#audience">
+    Understand who will read your documentation and what they need.
+  </Card>
+  <Card title="Structure Content" icon="layers" href="#structure">
+    Organize information logically with clear navigation.
+  </Card>
+  <Card title="Keep Updated" icon="refresh-cw" href="#maintenance">
+    Regularly review and update documentation.
+  </Card>
+</Columns>
+
+## Know Your Audience
+
+Understanding your readers is crucial for creating relevant documentation. Consider their technical background, goals, and how they will use the information.
+
+<Tabs>
+  <Tab title="Developers" icon="code">
+    Technical users need detailed API references, code examples, and implementation guides.
+
+    <Steps>
+      <Step title="Provide Code Examples" icon="terminal">
+        Include practical code snippets in multiple languages.
+      </Step>
+      <Step title="Explain Concepts" icon="book-open">
+        Break down complex technical concepts into digestible parts.
+      </Step>
+      <Step title="Link to References" icon="external-link">
+        Provide links to API documentation and related resources.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="End Users" icon="user">
+    Non-technical users need step-by-step guides and troubleshooting information.
+
+    <ExpandableGroup>
+      <Expandable title="Use Simple Language" default-open="false">
+        Avoid jargon and technical terms. Explain concepts clearly and provide definitions when necessary.
+      </Expandable>
+      <Expandable title="Include Screenshots" default-open="false">
+        Visual aids help users understand interfaces and workflows.
+      </Expandable>
+      <Expandable title="Create Tutorials" default-open="false">
+        Step-by-step guides with screenshots work better than reference documentation.
+      </Expandable>
+    </ExpandableGroup>
+  </Tab>
+</Tabs>
+
+<Callout kind="info">
+  Tailor your content style and depth to your audience. What works for developers may not work for business users.
+</Callout>
+
+## Structure Content
+
+Well-organized documentation is easier to navigate and understand. Use consistent structure and clear hierarchies.
+
+<Steps>
+  <Step title="Plan Your Outline" icon="list">
+    Create a detailed outline before writing to ensure logical flow.
+  </Step>
+  <Step title="Use Headings" icon="type">
+    Break content into sections with descriptive headings.
+  </Step>
+  <Step title="Add Navigation" icon="menu">
+    Include table of contents and cross-references.
+  </Step>
+  <Step title="Test Navigation" icon="search">
+    Verify that users can find information quickly.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="Good Structure,Bad Structure">
+  ````markdown
+  # User Authentication
+  
+  ## Overview
+  Brief explanation of authentication.
+  
+  ## Login Process
+  Step-by-step login guide.
+  
+  ## API Authentication
+  How to authenticate API calls.
+  
+  ## Troubleshooting
+  Common login issues.
+  ````
+  ````markdown
+  # Stuff About Login
+  
+  You need to log in. Here's how.
+  
+  API stuff: use tokens.
+  
+  Problems? Check password.
+  ````
+</CodeGroup>
+
+<Expandable title="How should I organize large documentation sets?" default-open="false">
+  For large projects, use a hierarchical structure with categories, subcategories, and clear naming conventions. Consider using tags and search features to improve discoverability.
+</Expandable>
+
+## Keep Updated
+
+Documentation becomes less valuable as it ages. Establish processes to keep content current.
+
+<ExpandableGroup>
+  <Expandable title="Set Review Schedules" default-open="false">
+    Schedule regular reviews of documentation, especially after product updates or feature changes.
+  </Expandable>
+  <Expandable title="Monitor Usage" default-open="false">
+    Use analytics to identify which pages are most visited and may need updates.
+  </Expandable>
+  <Expandable title="Encourage Feedback" default-open="false">
+    Include feedback mechanisms and act on user suggestions.
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="tip">
+  Treat documentation updates as part of your development process. Include documentation changes in your release notes and project timelines.
+</Callout>
+
+## Technical Best Practices
+
+Follow these technical guidelines to ensure your documentation is maintainable and accessible.
+
+- **Use Consistent Formatting**: Establish style guides for headings, code blocks, and lists
+- **Include Metadata**: Add tags, categories, and version information to pages
+- **Optimize for Search**: Use descriptive titles and include relevant keywords
+- **Ensure Accessibility**: Write alt text for images and ensure color contrast
+
+<Steps>
+  <Step title="Validate Links" icon="link">
+    Regularly check that all internal and external links work correctly.
+  </Step>
+  <Step title="Test Examples" icon="play">
+    Verify that code examples and tutorials work as described.
+  </Step>
+  <Step title="Use Version Control" icon="git-branch">
+    Track documentation changes alongside code changes.
+  </Step>
+</Steps>
+
+Following these best practices will help you create documentation that is valuable, maintainable, and user-friendly. Remember that good documentation is an ongoing process, not a one-time effort.

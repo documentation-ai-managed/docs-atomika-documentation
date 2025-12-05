@@ -1,0 +1,116 @@
+---
+title: Getting Started
+description: Step-by-step guide to set up and begin using Atomika Documentation
+---
+
+## Setting Up Your Account
+
+Getting started with Atomika Documentation is straightforward. First, create your account and verify your email address. Once logged in, you'll be guided through the initial setup process.
+
+<Steps>
+  <Step title="Sign Up" icon="user">
+    Visit the Atomika website and click "Get Started" to create your account. Provide your email address and choose a secure password.
+
+    <CodeGroup tabs="Web,CLI">
+      ````bash
+      # Web interface
+      Open https://app.atomika.com/signup
+      ````
+      ````bash
+      # CLI tool (if available)
+      npm install -g atomika-cli
+      atomika auth login
+      ````
+    </CodeGroup>
+  </Step>
+  <Step title="Verify Email" icon="mail">
+    Check your email for a verification link. Click the link to activate your account and gain full access to the platform.
+  </Step>
+  <Step title="Create First Project" icon="folder">
+    Once verified, create your first documentation project. Choose a name, description, and set initial permissions.
+  </Step>
+  <Step title="Invite Team Members" icon="users">
+    Add your team members to collaborate on documentation. Assign appropriate roles like editor or viewer.
+  </Step>
+</Steps>
+
+## Creating Your First Documentation
+
+After setting up your account and project, start creating documentation. Use our intuitive editor to write content, add images, and organize information.
+
+<Tabs>
+  <Tab title="Basic Page" icon="file-text">
+    Create a simple documentation page with text, headings, and basic formatting.
+
+    <Steps>
+      <Step title="Navigate to Editor" icon="edit">
+        From your project dashboard, click "New Page" to open the editor.
+      </Step>
+      <Step title="Add Content" icon="pen-tool">
+        Write your content using markdown or rich text formatting.
+      </Step>
+      <Step title="Save and Publish" icon="save">
+        Save your changes and publish the page to make it available to readers.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Advanced Page" icon="settings">
+    Create more complex documentation with code blocks, tables, and embedded media.
+
+    <CodeGroup tabs="Markdown,HTML">
+      ````markdown
+      # Advanced Documentation
+
+      ## Code Example
+      
+      ```javascript
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+      ```
+      
+      ## Data Table
+      
+      | Feature | Status |
+      |---------|--------|
+      | Real-time editing | ✅ Available |
+      | Version control | ✅ Available |
+      | API access | ✅ Available |
+      ````
+      ````html
+      <div class="advanced-doc">
+        <h1>Advanced Documentation</h1>
+        <p>This page demonstrates HTML embedding.</p>
+        <pre><code>const example = 'code block';</code></pre>
+      </div>
+      ````
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+<Expandable title="Troubleshooting Setup Issues" default-open="false">
+  If you encounter problems during setup, check your internet connection and ensure you're using a supported browser. For common issues like email verification problems, refer to our help center or contact support.
+</Expandable>
+
+<Callout kind="tip">
+  Use our template library to get started quickly with pre-built documentation structures for common use cases like API documentation or user guides.
+</Callout>
+
+## Best Practices
+
+To make the most of Atomika Documentation, follow these best practices:
+
+- **Keep Content Current**: Regularly update your documentation to reflect changes in your products or processes
+- **Use Consistent Naming**: Establish naming conventions for pages and projects to make navigation easier
+- **Leverage Search**: Take advantage of our powerful search features to find and link related content
+
+<ExpandableGroup>
+  <Expandable title="How to structure large documentation projects?" default-open="false">
+    For large projects, organize content into logical sections with clear hierarchies. Use categories and tags to improve discoverability.
+  </Expandable>
+  <Expandable title="What file formats are supported for uploads?" default-open="false">
+    Atomika supports common formats like PDF, images (PNG, JPG, SVG), and various document types for embedding or linking.
+  </Expandable>
+</ExpandableGroup>
+
+Atomika Documentation provides comprehensive tools for managing complex documentation projects. Whether you're documenting software APIs, internal processes, or user-facing guides, our platform scales with your needs.
